@@ -1,7 +1,15 @@
 #pragma once
 #include<iostream>
 #include<string>
+#include"List.h"
 using namespace std;
+
+struct DataFreq
+{
+	int Freq;
+	char Character;
+};
+
 class Compression
 {
 private:
@@ -12,4 +20,7 @@ public:
 	Compression();// default constructor 
 	void readFromFile(string);// Reading from the file
 	void arrayOfCharacters(char);// apply huffman code in this function
+	int CountingFreq(char);
+	//void Storing(char);
+
 };

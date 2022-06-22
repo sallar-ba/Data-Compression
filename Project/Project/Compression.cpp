@@ -6,6 +6,21 @@ Compression::Compression()	//Default Constructor
 	content = "";
 	sizeOfData = 0;
 }
+//-----------------------------------------------------------------------------------------------------
+void Compression::arrayOfCharacters(char character)
+{
+	for (int i = 0; i < sizeOfData; i++)
+	{
+		for (int j = 0; j < sizeOfData; j++)
+		{
+			if (arrayOfchar[i] != "")
+			{
+				arrayOfchar[i][j] = character; //Ask Huzaifa About This*********
+			}
+
+		}
+	}
+}
 //-----------------------------------------------------------------------------
 void Compression::readFromFile(string fileName)
 {
@@ -36,23 +51,18 @@ void Compression::readFromFile(string fileName)
 	}
 
 	if (!inFile.eof() && inFile.fail())
-		cout << "error reading " << fileName << endl;
+		cout << "Error Reading: " << fileName << endl;
 
 	inFile.close();
 }
-//-----------------------------------------------------------------------------------------------------
-void Compression::arrayOfCharacters(char character)
-{
-	for (int i = 0; i < sizeOfData; i++)
-	{
-		for (int j = 0; j < sizeOfData; j++)
-		{
-			if (arrayOfchar[i] != "")
-			{
-				arrayOfchar[i][j] = character;
-			}
 
-		}
-	}
+//------------------------------------------------------------------------------------------------------
+int Compression::CountingFreq(char c)
+{
+
 }
-//----------------------------------------------------------------------------------------------------
+
+//void Compression::Storing(char C)
+//{
+//	
+//}
