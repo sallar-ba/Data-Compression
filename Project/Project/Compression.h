@@ -18,6 +18,7 @@ private:
 	string fileName; // for File Name
 	vector<Data> Array;// Modifiable Array to Store Data
 	int sizeOfData; // To Store Len. of Data
+	float compressionRatio;//  to store compression ratio
 public:
 	//Public Member Function Prototypes
 	Compression();// default constructor 
