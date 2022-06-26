@@ -1,4 +1,4 @@
-﻿  compareNode.cpp
-  Source.cpp
-  Generating Code...
-  Project.vcxproj -> C:\Users\salla\DSA-L\Data-Compression\Project\x64\Debug\Project.exe
+﻿  Compression.cpp
+C:\Users\Hp EliteBook\newUpdate\Data-Compression\Project\Project\Compression.cpp(31,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Hp EliteBook\newUpdate\Data-Compression\Project\Project\Compression.cpp(131,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Project.vcxproj -> C:\Users\Hp EliteBook\newUpdate\Data-Compression\Project\x64\Debug\Project.exe
