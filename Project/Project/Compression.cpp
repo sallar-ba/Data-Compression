@@ -1,5 +1,4 @@
 #include "Compression.h"
-#include<fstream>
 //---------------------------------------- Constructors ---------------------------------------------
 //Default Constructor
 Compression::Compression()	
@@ -54,17 +53,17 @@ void Compression::storingInVector()
 
 	// Declaring Variables
 	char character = ' ';
-	int counter = 0;
+	int counter = 0; // Variable for Counting
 
 	if (!inFile) // If File is Not Present
 	{
-		cout << "File Does Not Exist..." << endl; // Printing Error 
-		exit(1); // Exiting
+		// Printing Error 
+		cout << "File Does Not Exist..." << endl; 
+		// Exiting
+		exit(1); 
 	}
 	else
 	{
-		if (inFile.is_open())
-		{
 			/* the good function is to check whether
 			   the file is good enough
 			   to open or not.
@@ -72,15 +71,16 @@ void Compression::storingInVector()
 			while (inFile.good())
 			{
 				// reading character by character
-				inFile.get(character);
-				if (counter != sizeOfData)
+				inFile.get(character); // Getting Character From File
+				// Did This Because It Was Printing an Extra Character
+				if (counter != sizeOfData) 
 				{
-					Obj.insert(character);
-					Array.push_back(Obj);
-					counter++;
+					Obj.insert(character);//inserting Character into the Data Obj
+					Array.push_back(Obj); // Pushing Data into vectors
+					counter++; // Incrementing Counter
 				}
 			}
-		}
+		inFile.close();
 	}
 }
 //------------------------------------------------------------
@@ -118,29 +118,19 @@ void Compression::calculatingFreq(int i = 2)
 		}
 		calculatingFreq(i - 1); //Calling The Function
 	}
-
-
-
 }
 //----------------------------------------------------------
 void Compression::PrintCharWithFreq()
 {
+	cout << endl;
 	//Telling That Printing Symbols
-	cout << "Symbols:   ";
+	cout << " Symbols:\tFrequency:\n" << endl;
 	//For-Loop
 	for (int i = 0; i < Array.size(); i++) 
 	{
-		// Printing Symbols
-		cout << "\'" << Array[i].Symbol << "\'\t";
+		// Printing Symbols & Frequency
+		cout << setw(4) << setfill(' ') << "\'" << Array[i].Symbol << "\'\t\t" << setw(5) << setfill(' ') << Array[i].Freq << endl;
 	}
-	//Telling That Printing Frequency
-	cout << "\n\nFrequency: ";
-	for (int i = 0; i < Array.size(); i++) 
-	{
-		// Printing Frequency
-		cout  << " " << Array[i].Freq << " \t";
-	}
-	//End Lines
 	cout << endl << endl;
 }
 //----------------------------------------------------------
@@ -169,7 +159,7 @@ void Compression::createArray()
 		//Storing Data i.e Symbol and Frequency in Data Array
 		Huff[i].insert(Array[i].Symbol, Array[i].Freq);
 	}
-	
+	//Calling the Decode Function
 	Decode(Huff, Array.size());
 }
 //----------------------------------------------------
@@ -229,7 +219,8 @@ void Compression::Display(HuffmanTree* root, int Arr[], int top)
 	if (!root->Left && !root->Right)// if the leaf node appear with no left and right child
 	{
 		int counter = 0;
-		cout << root->Huff.Symbol << " ";
+		//Printing Symbol
+		cout << setw(3) << setfill(' ') << "\'" << root->Huff.Symbol << "\' " << setw(15) << setfill(' ');
 		for (int i = 0; i < top; i++)
 		{
 			cout << Arr[i];
@@ -250,17 +241,22 @@ void Compression::Display(HuffmanTree* root, int Arr[], int top)
 //----------------------------------------------------------------
 void Compression::Decode(Data Huff[], int size)
 {
-	priority_queue<HuffmanTree*, vector<HuffmanTree*>, compareNode>Pq;// priority Queue object
+	// priority Queue object
+	priority_queue<HuffmanTree*, vector<HuffmanTree*>, compareNode>Pq;
 
 	for (int i = 0; i < size; i++)
 	{
 		HuffmanTree* newNode = new HuffmanTree(Huff[i]);
 		Pq.push(newNode);// pushing into the queue
 	}
-	HuffmanTree* root = Tree(Pq);// making huffman encoding tree
+	// making huffman encoding tree
+	HuffmanTree* root = Tree(Pq);
 	int arr[Max_Size], top = 0;
-	Display(root, arr, top);// print the optimized codes
-	cout << "Compression Ratio is " << compressionRatio / Array.size() << endl;// final compression ratio 
+	// print the optimized codes
+	cout << " Symbol:\t    Codes:\n" << endl;
+	Display(root, arr, top);
+	// Printing final compression ratio 
+	cout << "\n  Compression Ratio: " << compressionRatio / Array.size() << endl;
 
 }
 //----------------------------------------------------------------------

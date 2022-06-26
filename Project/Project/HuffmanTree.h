@@ -1,17 +1,19 @@
 #pragma once
-#include<iostream>
-#include"Data.h"
+#include<iostream> // inclusing I/O Lib.
+#include"Data.h" // including Data Class
 using namespace std;
-class HuffmanTree
+//-------------------------------
+class HuffmanTree //class
 {
 public:
 	/*char Symbol;
 	int Frequency;*/
-	Data Huff;
+	Data Huff; //Object
+	//-----------------------
 	HuffmanTree* Left;
 	HuffmanTree* Right;
-
+	//-----------------------
 	//Constructor
-	HuffmanTree(Data);
+	HuffmanTree(Data); //Parameterized
 };
-
+//-------------------------------------
