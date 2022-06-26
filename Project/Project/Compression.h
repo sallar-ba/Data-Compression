@@ -1,26 +1,39 @@
 #pragma once
-#include<iostream>
-#include<string>
-#include"List.h"
+#include<iostream> // Including Input/Output Lib.
+#include<string> // Including String Lib.
+#include<vector> // Including Vector Lib.
+#include"Data.h"
 using namespace std;
-
-struct DataFreq
+//--------------------------------------
+class Compression // Compression Class
 {
-	int Freq;
-	char Character;
-};
-
-class Compression
-{
+	//Private Data Members
 private:
 	string content;// the string which will read from the file
-	int sizeOfData;// Size Of the file 
-	char** arrayOfchar;
+	string fileName; // for File Name
+	vector<Data> Array;// Modifiable Array to Store Data
+	int sizeOfData; // To Store Len. of Data
 public:
+	//Public Member Function Prototypes
 	Compression();// default constructor 
-	void readFromFile(string);// Reading from the file
-	void arrayOfCharacters(char);// apply huffman code in this function
-	int CountingFreq(char);
-	//void Storing(char);
+	Compression(string); // Parameterized Constructor
+	void readFromFile();// Reading from the file
+			
+		// -+-+-+-+-+--+-+-+-+-+--+-+-+-+-+--+-+-+-+-+-
+	/*
+	Storing Data in Vector (Modifiable Array)
+	*/
+	void storingInVector(); 
+	// -+-+-+-+-+--+-+-+-+-+--+-+-+-+-+--+-+-+-+-+-
+/* Function to the Frequency of Each Character Present
+   in File, Which is Copied in content Data Member by
+   "readFromFile()" Function.
+*/
+	void calculatingFreq(int);
+	//Printing Function
+	void PrintCharWithFreq();
+	//Single Function to Compress all the Data
+	void Compress();
 
 };
+//--------------------------------------
