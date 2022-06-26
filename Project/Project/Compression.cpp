@@ -129,14 +129,13 @@ void Compression::Compress()
 void Compression::splitArray()
 {
 	int Size = Array.size();
-	char* charArray = new char[Size];
-	int* FreqArray = new int[Size];
+	Data* Huff = new Data[Size];
 	for (int i = 0; i < Array.size(); i++)
 	{
-		charArray[i] = Array[i].Symbol;
-		FreqArray[i] = Array[i].Freq;
+		Huff[i].insert(Array[i].Symbol, Array[i].Freq);
 	}
-	Decode(charArray, FreqArray, Size);
+	
+	Decode(Huff, Size);
 }
 //----------------------------------------------------
 HuffmanTree* Compression::Tree(priority_queue<HuffmanTree*, vector<HuffmanTree*>, compareNode> PQue)
@@ -150,8 +149,9 @@ HuffmanTree* Compression::Tree(priority_queue<HuffmanTree*, vector<HuffmanTree*>
 		HuffmanTree* Right = PQue.top(); //function is used to reference the top element of the priority queue
 
 		PQue.pop();
-
-		HuffmanTree* newNode = new HuffmanTree('@', Left->Frequency + Right->Frequency);// Assigning random character after addition
+		Data Check;
+		Check.insert('@', Left->Huff.Freq + Right->Huff.Freq);
+		HuffmanTree* newNode = new HuffmanTree(Check);// Assigning random character after addition
 		newNode->Left = Left;
 		newNode->Right = Right;
 
@@ -186,13 +186,13 @@ void Compression::Display(HuffmanTree* root, int Array[], int top)
 	}
 }
 //----------------------------------------------------------------
-void Compression::Decode(char Array[], int Frequency[], int size)
+void Compression::Decode(Data Huff[], int size)
 {
 	priority_queue<HuffmanTree*, vector<HuffmanTree*>, compareNode>Pq;// priority Queue object
 
 	for (int i = 0; i < size; i++)
 	{
-		HuffmanTree* newNode = new HuffmanTree(Array[i], Frequency[i]);
+		HuffmanTree* newNode = new HuffmanTree(Huff[i]);
 		Pq.push(newNode);// pushing into the queue
 	}
 	HuffmanTree* root = Tree(Pq);// making huffman encoding tree

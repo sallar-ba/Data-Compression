@@ -49,6 +49,6 @@ public:
 	void Display(HuffmanTree*, int[], int);
 
 	//Decoding into Huffman
-	void Decode(char[], int[], int);
+	void Decode(Data[], int);
 };
 //--------------------------------------
