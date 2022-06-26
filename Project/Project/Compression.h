@@ -3,6 +3,9 @@
 #include<string> // Including String Lib.
 #include<vector> // Including Vector Lib.
 #include"Data.h"
+#include"compareNode.h"
+#include<queue>
+#define Max_Size 100
 using namespace std;
 //--------------------------------------
 class Compression // Compression Class
@@ -32,8 +35,20 @@ public:
 	void calculatingFreq(int);
 	//Printing Function
 	void PrintCharWithFreq();
+
+	//Function to Splot Arrays
+	void splitArray();
+
 	//Single Function to Compress all the Data
 	void Compress();
 
+	//Function To Make Huffman Tree
+	HuffmanTree* Tree(priority_queue<HuffmanTree*, vector<HuffmanTree*>, compareNode>);
+
+	//Display Function
+	void Display(HuffmanTree*, int[], int);
+
+	//Decoding into Huffman
+	void Decode(char[], int[], int);
 };
 //--------------------------------------

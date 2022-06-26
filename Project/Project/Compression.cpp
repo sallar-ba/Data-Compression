@@ -122,5 +122,81 @@ void Compression::Compress()
 	storingInVector();
 	calculatingFreq();
 	PrintCharWithFreq();
-}
+	splitArray();
 
+}
+//----------------------------------------------------------
+void Compression::splitArray()
+{
+	int Size = Array.size();
+	char* charArray = new char[Size];
+	int* FreqArray = new int[Size];
+	for (int i = 0; i < Array.size(); i++)
+	{
+		charArray[i] = Array[i].Symbol;
+		FreqArray[i] = Array[i].Freq;
+	}
+	Decode(charArray, FreqArray, Size);
+}
+//----------------------------------------------------
+HuffmanTree* Compression::Tree(priority_queue<HuffmanTree*, vector<HuffmanTree*>, compareNode> PQue)
+{
+	while (PQue.size() != 1)// function is used to get size of the priority queue
+	{
+		HuffmanTree* Left = PQue.top(); //function is used to reference the top element of the priority queue
+
+		PQue.pop();
+
+		HuffmanTree* Right = PQue.top(); //function is used to reference the top element of the priority queue
+
+		PQue.pop();
+
+		HuffmanTree* newNode = new HuffmanTree('@', Left->Frequency + Right->Frequency);// Assigning random character after addition
+		newNode->Left = Left;
+		newNode->Right = Right;
+
+		PQue.push(newNode);
+	}
+
+	return PQue.top();
+
+}
+//---------------------------------------------------------------------
+void Compression::Display(HuffmanTree* root, int Array[], int top)
+{
+	if (root->Left) //assign 0 to the left child path
+	{
+		Array[top] = 0;
+		Display(root->Left, Array, top + 1);
+	}
+	if (root->Right)// assign 1 to the right child path
+	{
+		Array[top] = 1;
+		Display(root->Right, Array, top + 1);
+	}
+	if (!root->Left && !root->Right)// if the leaf node appear with no left and right child
+	{
+		//cout << root->Symbol << " ";
+		for (int i = 0; i < top; i++)
+		{
+			cout << Array[i];
+		}
+		cout << " ";
+		//cout << endl;
+	}
+}
+//----------------------------------------------------------------
+void Compression::Decode(char Array[], int Frequency[], int size)
+{
+	priority_queue<HuffmanTree*, vector<HuffmanTree*>, compareNode>Pq;// priority Queue object
+
+	for (int i = 0; i < size; i++)
+	{
+		HuffmanTree* newNode = new HuffmanTree(Array[i], Frequency[i]);
+		Pq.push(newNode);// pushing into the queue
+	}
+	HuffmanTree* root = Tree(Pq);// making huffman encoding tree
+	int arr[Max_Size], top = 0;
+	Display(root, arr, top);// print the optimized codes
+}
+//----------------------------------------------------------------------

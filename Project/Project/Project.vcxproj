@@ -139,13 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="compareNode.cpp" />
     <ClCompile Include="Compression.cpp" />
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="HuffmanTree.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="compareNode.h" />
     <ClInclude Include="Compression.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="HuffmanTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

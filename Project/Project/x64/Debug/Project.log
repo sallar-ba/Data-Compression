@@ -1,5 +1,6 @@
 ﻿  Compression.cpp
-C:\Users\salla\Data-Compression\Project\Project\Compression.cpp(31,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\salla\DSA-L\Data-Compression\Project\Project\Compression.cpp(31,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\salla\DSA-L\Data-Compression\Project\Project\Compression.cpp(131,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Source.cpp
   Generating Code...
-  Project.vcxproj -> C:\Users\salla\Data-Compression\Project\x64\Debug\Project.exe
+  Project.vcxproj -> C:\Users\salla\DSA-L\Data-Compression\Project\x64\Debug\Project.exe
