@@ -12,7 +12,6 @@ public:
 	HuffmanTree* Right;
 
 	//Constructor
-	//HuffmanTree(char, int);
 	HuffmanTree(Data);
 };
 

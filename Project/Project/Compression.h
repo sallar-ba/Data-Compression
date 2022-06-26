@@ -2,9 +2,11 @@
 #include<iostream> // Including Input/Output Lib.
 #include<string> // Including String Lib.
 #include<vector> // Including Vector Lib.
+// -+-+-+-+-+--+-+-+-+-+--+-+-+-+-+--+-+-+-+-+-
 #include"Data.h"
 #include"compareNode.h"
-#include<queue>
+// -+-+-+-+-+--+-+-+-+-+--+-+-+-+-+--+-+-+-+-+-
+#include<queue> // Including Queue Class For Priority Queue
 #define Max_Size 100
 using namespace std;
 //--------------------------------------
@@ -22,22 +24,22 @@ public:
 	Compression(string); // Parameterized Constructor
 	void readFromFile();// Reading from the file
 			
-		// -+-+-+-+-+--+-+-+-+-+--+-+-+-+-+--+-+-+-+-+-
 	/*
-	Storing Data in Vector (Modifiable Array)
+	   Storing Data in Vector (Modifiable Array)
 	*/
 	void storingInVector(); 
-	// -+-+-+-+-+--+-+-+-+-+--+-+-+-+-+--+-+-+-+-+-
-/* Function to the Frequency of Each Character Present
-   in File, Which is Copied in content Data Member by
-   "readFromFile()" Function.
-*/
+
+	/* 
+	   Function to the Frequency of Each Character Present
+	   in File, Which is Copied in content Data Member by
+       "readFromFile()" Function.
+	*/
 	void calculatingFreq(int);
 	//Printing Function
 	void PrintCharWithFreq();
 
 	//Function to Splot Arrays
-	void splitArray();
+	void createArray();
 
 	//Single Function to Compress all the Data
 	void Compress();

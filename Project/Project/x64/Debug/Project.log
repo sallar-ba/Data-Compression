@@ -1,4 +1,6 @@
-﻿  compareNode.cpp
+﻿  Compression.cpp
+C:\Users\salla\DSA-L\Data-Compression\Project\Project\Compression.cpp(40,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\salla\DSA-L\Data-Compression\Project\Project\Compression.cpp(172,27): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   Source.cpp
   Generating Code...
   Project.vcxproj -> C:\Users\salla\DSA-L\Data-Compression\Project\x64\Debug\Project.exe

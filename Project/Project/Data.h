@@ -1,4 +1,5 @@
 #pragma once
+// -+-+-+-+-+--+-+-+-+-+--+-+-+-+-+--+-+-+-+-+-
 class Data
 {
 public:
@@ -9,7 +10,8 @@ public:
 	Data();
 	Data(char);
 
-	// Function
+	// Functions
 	void insert(char);
 	void insert(char, int);
 };
+// -+-+-+-+-+--+-+-+-+-+--+-+-+-+-+--+-+-+-+-+-

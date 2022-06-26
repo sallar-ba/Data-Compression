@@ -1,28 +1,38 @@
 #include "Compression.h"
 #include<fstream>
-//-------------------- Constructors ---------------------------------------------
-Compression::Compression()	//Default Constructor
+//---------------------------------------- Constructors ---------------------------------------------
+//Default Constructor
+Compression::Compression()	
 {
-	fileName = "Huffman.txt"; // Giving a Default File
+	// Giving a Default File
+	fileName = "Huffman.txt"; 
 }
-Compression::Compression(string fileName) // Parameterized Constructor
+// Parameterized Constructor
+Compression::Compression(string fileName) 
 {
+	//Assigning
 	this->fileName = fileName;
 }
 //-----------------------------------------------------------------------------------------------------
 void Compression::readFromFile()
 {
-	ifstream inFile(fileName); // Creating an Object
+	// Creating an Object
+	ifstream inFile(fileName); 
 
-	if (!inFile) // If File is Not Present
+	// If File is Not Present
+	if (!inFile) 
 	{
-		cout << "File Does Not Exist..." << endl; // Printing Error 
-		exit(1); // Exiting
+		// Printing Error 
+		cout << "File Does Not Exist..." << endl; 
+		// Exiting
+		exit(1); 
 	}
 	else
 	{
-		ifstream readFile(fileName, ios::in); // Creating an Object
-		while (!readFile.eof()) // Run Till End of File
+		// Creating an Object
+		ifstream readFile(fileName, ios::in); 
+		// Run Till End of File
+		while (!readFile.eof()) 
 		{
 			// Copy Data From readFile to Content String
 			while (getline(readFile, content) )
@@ -31,6 +41,7 @@ void Compression::readFromFile()
 				sizeOfData = content.length();
 			}
 		}
+		//Closing the File
 		readFile.close();
 	}
 
@@ -78,6 +89,7 @@ void Compression::calculatingFreq(int i = 2)
 	//Made Recursive
 	if (i == 0)
 	{
+		//Ending The Function
 		return;
 	}
 	else
@@ -85,17 +97,22 @@ void Compression::calculatingFreq(int i = 2)
 		//Nesting For Loop
 		for (int i = 0; i < Array.size() - 1; i++)
 		{
+			//For-Loop
 			for (int j = i + 1; j < Array.size(); j++)
 			{
+				//Finding Duplicate Symbol
 				if (Array[i].Symbol == Array[j].Symbol)
 				{
-					//Swapping
+					/*
+					* Swapping the Found Symbol with the Last Element
+					*/ 
 					char Temp = Array[j].Symbol;
 					Array[j].Symbol = Array[Array.size() - 1].Symbol;
 					Array[Array.size() - 1].Symbol = Temp;
 					//Incrementing Freq
 					Array[i].Freq = Array[i].Freq + 1;
-					Array.pop_back(); // Removing Last
+					// Removing Last
+					Array.pop_back(); 
 				}
 			}
 		}
@@ -108,34 +125,52 @@ void Compression::calculatingFreq(int i = 2)
 //----------------------------------------------------------
 void Compression::PrintCharWithFreq()
 {
-	cout << "Symbol\tFreq." << endl;
-	for (int i = 0; i < Array.size(); i++) //For-Loop
+	//Telling That Printing Symbols
+	cout << "Symbols:   ";
+	//For-Loop
+	for (int i = 0; i < Array.size(); i++) 
 	{
-		cout << Array[i].Symbol << "\t" << Array[i].Freq << endl;// Printing
+		// Printing Symbols
+		cout << "\'" << Array[i].Symbol << "\'\t";
 	}
-	cout << endl;
+	//Telling That Printing Frequency
+	cout << "\n\nFrequency: ";
+	for (int i = 0; i < Array.size(); i++) 
+	{
+		// Printing Frequency
+		cout  << " " << Array[i].Freq << " \t";
+	}
+	//End Lines
+	cout << endl << endl;
 }
 //----------------------------------------------------------
 void Compression::Compress()
 {
+	//Function Call to Read Content From File
 	readFromFile();
+	//Function Call to Store Content Into Vector (Array)
 	storingInVector();
+	//Function Call To Calculate Frequency
 	calculatingFreq();
+	//Function Call To Print Characters With Frequency
 	PrintCharWithFreq();
-	splitArray();
+	//Splitting Array
+	createArray();
 
 }
 //----------------------------------------------------------
-void Compression::splitArray()
+void Compression::createArray()
 {
-	int Size = Array.size();
-	Data* Huff = new Data[Size];
+	//Creating an Array of Data Object of Size of Vector
+	Data* Huff = new Data[Array.size()];
+	//For-Loop
 	for (int i = 0; i < Array.size(); i++)
 	{
+		//Storing Data i.e Symbol and Frequency in Data Array
 		Huff[i].insert(Array[i].Symbol, Array[i].Freq);
 	}
-	
-	Decode(Huff, Size);
+	//Calling Function to Decode
+	Decode(Huff, Array.size());
 }
 //----------------------------------------------------
 HuffmanTree* Compression::Tree(priority_queue<HuffmanTree*, vector<HuffmanTree*>, compareNode> PQue)
