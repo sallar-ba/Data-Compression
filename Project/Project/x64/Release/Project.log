@@ -1,0 +1,6 @@
+﻿  Source.cpp
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 325 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Project.vcxproj -> C:\Users\salla\DSA-L\Data-Compression\Project\x64\Release\Project.exe

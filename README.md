@@ -1,14 +1,24 @@
 # Data-Compression
 Data Structure and Algorithms Lab Project.
 
-Group Members: 
+Contributors: 
     Muhammad Sallar Bin Aamir
     Muhammad Huzaifa Ilyas
-
-Group Enrollments:
-    01-134211-066
-    01-134211-061
 
 Data Compression:
 Data compression is a reduction in the number of bits needed to represent data. Compressing data can save storage capacity, speed up file transfer, and decrease costs for storage hardware and network bandwidth.
 
+# UML Diagram
+
+![](Project/Project/UML.PNG)
+
+
+# Console - Output
+
+![](Project/Project/Output.PNG)
+
+
+# Basic Build Instructions
+1. Clone this repo.
+2. Make a Directory
+3. Run
