@@ -8,14 +8,9 @@ Contributors:
 Data Compression:
 Data compression is a reduction in the number of bits needed to represent data. Compressing data can save storage capacity, speed up file transfer, and decrease costs for storage hardware and network bandwidth.
 
-# UML Diagram
-
-![](Project/Project/UML.PNG)
-
-
 # Console - Output
 
-![](Project/Project/Output.PNG)
+                     ![](Project/Project/Output.PNG)
 
 
 # Basic Build Instructions
