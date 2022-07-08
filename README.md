@@ -10,7 +10,7 @@ Data compression is a reduction in the number of bits needed to represent data. 
 
 # Console - Output
 
-                     ![](Project/Project/Output.PNG)
+![](Project/Project/Output.PNG)
 
 
 # Basic Build Instructions
