@@ -1,19 +1,19 @@
-# Data-Compression
-Data Structure and Algorithms Lab Project.
 
-Contributors: 
-    Muhammad Sallar Bin Aamir
-    Muhammad Huzaifa Ilyas
+# Data Compression
 
-Data Compression:
-Data compression is a reduction in the number of bits needed to represent data. Compressing data can save storage capacity, speed up file transfer, and decrease costs for storage hardware and network bandwidth.
+Data compression is a reduction in the number 
+of bits needed to represent data. Compressing 
+data can save storage capacity, speed up file transfer, 
+and decrease costs for storage hardware and network bandwidth.
 
-# Console - Output
+Using Huffman Algorithm to Implement this Data Compression Project.
 
-![](Project/Project/Output.PNG)
+## Authors
 
+- [@sallar-ba](https://www.github.com/sallar-ba)
+- [@huzaifa-ilyas](https://github.com/Huzaifailyas1122)
 
-# Basic Build Instructions
-1. Clone this repo.
-2. Make a Directory
-3. Run
+## Screenshot
+
+![Running Screenshot](https://github.com/sallar-ba/Data-Compression/blob/main/Project/Project/Output.PNG?raw=true)
+
